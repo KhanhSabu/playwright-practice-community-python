@@ -11,7 +11,13 @@ class HomePage(BasePage):
         return {
             'title': lambda title: self.page.get_by_role("heading", level=1, name=title),
             'description': lambda description: self.page.get_by_text(description),
+            'search_bar': self.page.get_by_placeholder("Search products..."),
+            'search_button': self.page.locator(".header-search-button"),
         }
 
     def goto(self):
         self.navigate('/')
+
+    def search(self, keyword):
+        self.home_page_locs['search_bar'].fill(keyword)
+        self.home_page_locs['search_button'].click()

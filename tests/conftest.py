@@ -1,6 +1,9 @@
 import os
 import pytest
 from dotenv import load_dotenv
+
+from src.pages.product.product_detail_page import ProductDetailPage
+from src.pages.product.product_page import ProductPage
 from src.pages.home.home_page import HomePage
 
 # Load environment variables
@@ -23,3 +26,11 @@ def home_page(page):
     Fixture to provide an initialized HomePage instance.
     """
     return HomePage(page)
+
+@pytest.fixture
+def product_page(page):
+    return ProductPage(page)
+
+@pytest.fixture
+def product_detail_page(page):
+    return ProductDetailPage(page)
