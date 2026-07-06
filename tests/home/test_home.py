@@ -27,7 +27,7 @@ def test_search_product_by_keyword_return_matching_products(home_page, product_p
 
     # Step 2: open each product and assert the keyword shows in the title or description
     for i in range(expected_product_count):
-        product_page.product_page_locs['product_items'].nth(i).click()
+        product_page.product_items.nth(i).click()
 
         matches = (
             product_detail_page.product_title.or_(
